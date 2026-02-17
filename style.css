@@ -1,0 +1,55 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: #1e1e2f;
+    padding: 40px;
+    border-radius: 15px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.balance {
+    font-size: 22px;
+    margin: 20px 0;
+}
+
+#amount {
+    display: block;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #00ffcc;
+    transition: color 0.3s ease;
+}
+
+.actions input {
+    padding: 10px;
+    width: 150px;
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+.actions button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.actions button:hover {
+    opacity: 0.8;
+}

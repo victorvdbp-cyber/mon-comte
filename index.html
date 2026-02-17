@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Compte Bancaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+    <h1>💳 Mon Compte Bancaire</h1>
+
+    <div class="balance">
+        Solde actuel :
+        <span id="amount">0 €</span>
+    </div>
+
+    <div class="actions">
+        <input type="number" id="customAmount" placeholder="Montant €">
+        <br><br>
+        <button onclick="addMoney()">+ Ajouter</button>
+        <button onclick="removeMoney()">- Retirer</button>
+    </div>
+</div>
+
+<script>
+let balance;
+
+// Charger le solde sauvegardé
+if (localStorage.getItem("balance")) {
+    balance = parseFloat(localStorage.getItem("balance"));
+} else {
+    balance = 1250;
+}
+
+// Mettre à jour l'affichage
+function updateDisplay() {
+    const amountEl = document.getElementById("amount");
+    amountEl.textContent = balance.toFixed(2) + " €";
+
+    // Couleur
+    if (balance < 0) {
+        amountEl.style.color = "red";
+    } else {
+        amountEl.style.color = "#00ffcc";
+    }
+
+    // Sauvegarde
+    localStorage.setItem("balance", balance);
+}
+
+// Récupérer le montant
+function getAmount() {
+    const val = parseFloat(document.getElementById("customAmount").value);
+    if (isNaN(val)) {
+        alert("Entre un montant !");
+        return 0;
+    }
+    return val;
+}
+
+// Ajouter
+function addMoney() {
+    balance += getAmount();
+    updateDisplay();
+}
+
+// Retirer
+function removeMoney() {
+    balance -= getAmount();
+    updateDisplay();
+}
+
+// Afficher au chargement
+updateDisplay();
+</script>
+
+</body>
+</html>
